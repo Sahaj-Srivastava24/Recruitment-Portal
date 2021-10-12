@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useQuery } from 'react'
 import Question from '../component/Question'
 import ResponseContext from '../component/ResponseContext'
 
@@ -9,8 +9,23 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
 export default function QuizPortal() {
-  const [ response, setResponse ] = useState([])
 
+  const [ timer, setTimer ] = useState(0)
+
+  // useQuery( () => {
+
+  //   const reqOptions = {}
+  //   const mongoURI = ""
+
+  //   fetch(mongoURI, reqOptions)
+  //   .then(response => response.json())
+  //   .then(user => setTimer(user.quiz.endQuizTime))
+
+  // },[])
+
+
+
+  const [ response, setResponse ] = useState([])
   // Assuming we have an array of { quesId, question } from server
   const quesArr = [
     {
@@ -40,7 +55,7 @@ export default function QuizPortal() {
     return (
     <div>
       <ResponseContext.Provider value={{ response, setResponse }}>
-      
+      <h2>{timer}</h2>
         <Box sx={{ flexGrow: 1 , mb: 3}}>
           <Grid 
           container 
