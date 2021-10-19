@@ -1,0 +1,35 @@
+{
+    "questionQuery":[
+        {
+            "id":1,
+            "text": "Sample Question 1",
+            "choices": [ "Sample Choice 1" , "Sample Choice 2" , "Sample Choice 3" , "Sample Choice 4"]
+        },
+        {
+            "id":2,
+            "text": "Sample Question 2",
+            "choices": [ "Sample Choice 1" , "Sample Choice 2" , "Sample Choice 3" , "Sample Choice 4"]
+        },
+        {
+            "id":3,
+            "text": "Sample Question 3",
+            "choices": [ "Sample Choice 1" , "Sample Choice 2" , "Sample Choice 3" , "Sample Choice 4"]
+        }
+    ],
+    
+    "answerResponse":{
+        
+    },
+
+    "userLoginRequest": {
+        "login":true,
+        "userId": "7186876",
+        "user": {
+            "name": "madlad"
+        }
+
+    },
+    "userLoginResponse":{
+
+    }
+}
