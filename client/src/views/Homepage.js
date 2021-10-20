@@ -9,9 +9,9 @@ export default function Homepage() {
   return (
     <div>
       Welcome to the ACM Recruitments Portal
-      { !user.userId && <Link to="/signin"><Button variant="contained">Sign in</Button></Link>  }
-      { !user.userId && <Link to="/register"><Button variant="contained">Register</Button></Link>  }
-      { user.userId && <Link to="/quizDetails"><Button variant="contained">Take Me to Quiz</Button></Link> }
+      { !user.login && <Link to="/signin"><Button variant="contained">Sign in</Button></Link>  }
+      { !user.login && <Link to="/register"><Button variant="contained">Register</Button></Link>  }
+      { user.login && <Link to="/quizDetails"><Button variant="contained">Take Me to Quiz</Button></Link> }
       
     </div>
   )

@@ -11,8 +11,8 @@ export default function QuizPortal() {
 
   const [ timer, setTimer ] = useState(0)
   const [ quesArr, setquesArr ] = useState([])
-  const { user, setUser } = useContext(UserContext)
   const [ response, setResponse ] = useState([])
+  const { user, setUser } = useContext(UserContext)
 
   // Assuming we have an array of { quesId, question } from server
   // const quesArr = [
@@ -33,13 +33,6 @@ export default function QuizPortal() {
   //   },
   // ]
   useEffect(() => {
-
-    // const reqOptions = {}
-    // const mongoURI = ""
-
-    // fetch(mongoURI, reqOptions)
-    // .then(response => response.json())
-    // .then(user => setTimer(user.quiz.endQuizTime))
 
     fetch("http://localhost:3001/questionQuery")
       .then(res => res.json())
@@ -62,8 +55,9 @@ export default function QuizPortal() {
     })
       .then((res) => res.json())
       .then((result) => console.log(result))
-      .catch((err) => console.log('error'))
+      .catch((err) => console.log(err))
   }
+  console.log(user)
 
     return (
     <div>
@@ -85,7 +79,7 @@ export default function QuizPortal() {
           }) }
           </Grid>
           <Button variant="contained" onClick={() => handleSubmit(response)}>Submit</Button>
-          <Button variant="outlined" onClick={() => console.log(response)}>Back</Button>
+          {/* <Button variant="outlined" onClick={() => console.log(response)}>Back</Button> */}
         </Box>
       </ ResponseContext.Provider>
     </div>

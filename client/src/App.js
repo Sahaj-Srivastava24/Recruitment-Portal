@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Homepage from './views/Homepage';
 import QuizDetail from './views/QuizDetail';
@@ -14,11 +14,13 @@ function App() {
     userId: null,
     user: null
   })
+
+  const userMemo = useMemo( () => ({ user, setUser }) , [ user ])
   return (
     <div className="App">
       <Router>
         <Switch>
-          <UserContext.Provider value={{ user, setUser }}>
+          <UserContext.Provider value={ userMemo }>
             <Route path="/signin" component={Signin} />
             <Route path="/register" component={Register} />
             <Route path="/quizDetails" component={QuizDetail} />
