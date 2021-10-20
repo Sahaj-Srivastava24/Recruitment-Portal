@@ -6,6 +6,7 @@ import Register from './views/Register';
 import Signin from './views/Signin';
 import QuizPortal from './views/QuizPortal';
 import UserContext from './component/UserContext';
+import ProtectedRoute from './component/ProtectedRoute';
 
 
 function App() {
@@ -23,8 +24,8 @@ function App() {
           <UserContext.Provider value={ userMemo }>
             <Route path="/signin" component={Signin} />
             <Route path="/register" component={Register} />
-            <Route path="/quizDetails" component={QuizDetail} />
-            <Route path="/quizPortal" component={QuizPortal} />
+            <ProtectedRoute path="/quizDetails" component={QuizDetail} />
+            <ProtectedRoute path="/quizPortal" component={QuizPortal} />
             <Route exact path="/" component={ Homepage } />
           </UserContext.Provider>
         </Switch>

@@ -13,7 +13,7 @@ export default function Signin() {
     const [ email, setEmail ] = useState("")
     const [ pass, setPass ] = useState("")
     let history = useHistory();
-    var { user, setUser } = useContext(UserContext)
+    const { user, setUser } = useContext(UserContext)
     console.log(user)
 
     const handleSubmit = () => {
