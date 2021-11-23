@@ -4,6 +4,7 @@ import Homepage from './views/Homepage';
 import QuizDetail from './views/QuizDetail';
 import Register from './views/Register';
 import Signin from './views/Signin';
+import QuizEnd from './views/QuizEnd';
 import QuizPortal from './views/QuizPortal';
 import UserContext from './component/UserContext';
 import ProtectedRoute from './component/ProtectedRoute';
@@ -26,6 +27,7 @@ function App() {
             <Route path="/register" component={Register} />
             <ProtectedRoute path="/quizDetails" component={QuizDetail} />
             <ProtectedRoute path="/quizPortal" component={QuizPortal} />
+            <ProtectedRoute path="/QuizEnd" component={QuizEnd} />
             <Route exact path="/" component={ Homepage } />
           </UserContext.Provider>
         </Switch>

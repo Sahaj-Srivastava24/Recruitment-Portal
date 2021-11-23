@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { Redirect } from 'react-router-dom'
+import Countdown from 'react-countdown';
 import Question from '../component/Question'
 import ResponseContext from '../component/ResponseContext'
 import UserContext from '../component/ResponseContext'
@@ -9,10 +11,21 @@ import Grid from '@mui/material/Grid';
 
 export default function QuizPortal() {
 
-  const [ timer, setTimer ] = useState(0)
+  // const [ timer, setTimer ] = useState()
   const [ quesArr, setquesArr ] = useState([])
   const [ response, setResponse ] = useState([])
-  const { user, setUser } = useContext(UserContext)
+  const { user } = useContext(UserContext)
+
+  // Renderer callback with condition
+  const renderer = ({ minutes, seconds, completed }) => {
+    if (completed) {
+      handleSubmit(response)
+      return <Redirect to='./QuizEnd' />;
+    } else {
+      // Render a countdown
+      return <h3>{minutes}:{seconds}</h3>;
+    }
+  };
 
   // Assuming we have an array of { quesId, question } from server
   // const quesArr = [
@@ -62,7 +75,11 @@ export default function QuizPortal() {
     return (
     <div>
       <ResponseContext.Provider value={{ response, setResponse }}>
-      <h2>{timer}</h2>
+      {/* <h2>{timer}</h2> */}
+        <Countdown
+          date={Date.now() + 15000}
+          renderer={renderer}
+        />
         <Box sx={{ flexGrow: 1 , mb: 3}}>
           <Grid 
           container 
